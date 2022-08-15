@@ -3565,6 +3565,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/semver@^7.3.12":
+  version "7.3.12"
+  resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.3.12.tgz#920447fdd78d76b19de0438b7f60df3c4a80bf1c"
+  integrity sha512-WwA1MW0++RfXmCr12xeYOOC5baSC9mSb0ZqCquFzKhcoF4TvHu5MKOuXsncgZcpVFhB1pXd5hZmM0ryAoCp12A==
+
 "@types/sha.js@^2.4.0":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@types/sha.js/-/sha.js-2.4.0.tgz#bce682ef860b40f419d024fa08600c3b8d24bb01"
@@ -11575,10 +11580,13 @@ just-curry-it@^3.1.0:
   resolved "https://registry.yarnpkg.com/just-curry-it/-/just-curry-it-3.2.1.tgz#7bb18284c8678ed816bfc5c19e44400605fbe461"
   integrity sha512-Q8206k8pTY7krW32cdmPsP+DqqLgWx/hYPSj9/+7SYqSqz7UuwPbfSe07lQtvuuaVyiSJveXk0E5RydOuWwsEg==
 
-kcc-safe-deployments-sdk@^0.1.1:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/kcc-safe-deployments-sdk/-/kcc-safe-deployments-sdk-0.1.2.tgz#25997dc176d684136e33ddb967a57adf4175dbaf"
-  integrity sha512-I5zo7fnbKCE+fU2O2ZcfS8r9y4q0YXzT7Fy2ama+Kqlo4FhMvUY/AVvq9Os99A//L7XlZXdqi3KpShi+c5nDEA==
+kcc-safe-deployments-sdk@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/kcc-safe-deployments-sdk/-/kcc-safe-deployments-sdk-0.1.3.tgz#6741784d9a9d1bc8d52925f6f6a5d2419fec7b78"
+  integrity sha512-MllNrtn+WWWqRvUpoLzIB6NnCUAl2GdJATV1m1MRuRdhCarvBfDzxl52aaHgnP6HMoai5dT5dJo0DKiJyWA+zQ==
+  dependencies:
+    "@types/semver" "^7.3.12"
+    semver "^7.3.7"
 
 keccak256@^1.0.0:
   version "1.0.6"
