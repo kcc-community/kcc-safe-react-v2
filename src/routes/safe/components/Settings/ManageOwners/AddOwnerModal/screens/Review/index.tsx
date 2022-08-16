@@ -52,6 +52,7 @@ export const ReviewAddOwner = ({ onClickBack, onClose, onSubmit, values }: Revie
           { ownerAddress: values.ownerAddress, threshold: +values.threshold },
           { safeTxGas: 0 },
         )
+
         const txData = safeTx.data.data
 
         if (isCurrent) {
@@ -61,6 +62,7 @@ export const ReviewAddOwner = ({ onClickBack, onClose, onSubmit, values }: Revie
         logError(Errors._811, error.message)
       }
     }
+
     calculateAddOwnerData()
 
     return () => {

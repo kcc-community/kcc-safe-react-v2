@@ -38,26 +38,30 @@ export const sendAddOwner = async (
   connectedWalletAddress: string,
   delayExecution: boolean,
 ): Promise<void> => {
-  const sdk = await getSafeSDK(connectedWalletAddress, safeAddress, safeVersion)
-  const safeTx = await sdk.getAddOwnerTx(
-    { ownerAddress: values.ownerAddress, threshold: +values.threshold },
-    { safeTxGas: 0 },
-  )
-  const txData = safeTx.data.data
+  try {
+    const sdk = await getSafeSDK(connectedWalletAddress, safeAddress, safeVersion)
+    const safeTx = await sdk.getAddOwnerTx(
+      { ownerAddress: values.ownerAddress, threshold: +values.threshold },
+      { safeTxGas: 0 },
+    )
+    const txData = safeTx.data.data
 
-  await dispatch(
-    createTransaction({
-      safeAddress,
-      to: safeAddress,
-      valueInWei: '0',
-      txData,
-      txNonce: txParameters.safeNonce,
-      safeTxGas: txParameters.safeTxGas,
-      ethParameters: txParameters,
-      notifiedTransaction: TX_NOTIFICATION_TYPES.SETTINGS_CHANGE_TX,
-      delayExecution,
-    }),
-  )
+    await dispatch(
+      createTransaction({
+        safeAddress,
+        to: safeAddress,
+        valueInWei: '0',
+        txData,
+        txNonce: txParameters.safeNonce,
+        safeTxGas: txParameters.safeTxGas,
+        ethParameters: txParameters,
+        notifiedTransaction: TX_NOTIFICATION_TYPES.SETTINGS_CHANGE_TX,
+        delayExecution,
+      }),
+    )
+  } catch (e) {
+    console.log(e)
+  }
 
   trackEvent({ ...SETTINGS_EVENTS.THRESHOLD.THRESHOLD, label: values.threshold })
   trackEvent({ ...SETTINGS_EVENTS.THRESHOLD.OWNERS, label: currentSafe(store.getState()).owners.length })

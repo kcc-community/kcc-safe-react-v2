@@ -11580,10 +11580,10 @@ just-curry-it@^3.1.0:
   resolved "https://registry.yarnpkg.com/just-curry-it/-/just-curry-it-3.2.1.tgz#7bb18284c8678ed816bfc5c19e44400605fbe461"
   integrity sha512-Q8206k8pTY7krW32cdmPsP+DqqLgWx/hYPSj9/+7SYqSqz7UuwPbfSe07lQtvuuaVyiSJveXk0E5RydOuWwsEg==
 
-kcc-safe-deployments-sdk@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/kcc-safe-deployments-sdk/-/kcc-safe-deployments-sdk-0.1.4.tgz#90477b54a17be910221afaf8e8916cb1411a1d78"
-  integrity sha512-rS9ZyBQ59wQnOnjaLELinQNg9NULxqwIoekyHs9A2jS5EnHAa5TlKoa2/MQmh7YcsouyYZimD4YdfHkbflvA0Q==
+kcc-safe-deployments-sdk@0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/kcc-safe-deployments-sdk/-/kcc-safe-deployments-sdk-0.1.5.tgz#6bfcd90bd2a05f7063c84a8fb8515746f1378a20"
+  integrity sha512-3LmSl/gAaJYGO3caz1avVAK2eCeZL1DSNuFgLFqpAeVU0LPLqGVUFt+CZK7I/qe2SznL7tHnnxDvPQaJJuGvNg==
   dependencies:
     "@types/semver" "^7.3.12"
     semver "^7.3.7"

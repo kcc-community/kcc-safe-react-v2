@@ -21,6 +21,10 @@ import { checksumAddress } from 'src/utils/checksumAddress'
 import { isValidAddress } from 'src/utils/isValidAddress'
 import { Wallet } from 'bnc-onboard/dist/src/interfaces'
 
+import L2ABI from './abis/gnosisL2ABI.json'
+import proxyABI from './abis/gnosisproxyABI.json'
+import multiABI from './abis/multisendABI.json'
+
 // This providers have direct relation with name assigned in bnc-onboard configuration
 export enum WALLET_PROVIDER {
   METAMASK = 'METAMASK',
@@ -151,10 +155,11 @@ export const isTxPendingError = (err: Error): boolean => {
 }
 
 export const getSDKWeb3Adapter = (signerAddress: string): Web3Adapter => {
-  return new Web3Adapter({
+  const adaptor = new Web3Adapter({
     web3: getWeb3(),
     signerAddress,
   })
+  return adaptor
 }
 
 export const getSDKWeb3ReadOnly = (): Web3Adapter => {
@@ -179,5 +184,21 @@ export const getSafeSDK = async (signerAddress: string, safeAddress: string, saf
     ethAdapter,
     safeAddress,
     isL1SafeMasterCopy,
+    contractNetworks: {
+      321: {
+        multiSendAddress: '0xA238CBeb142c10Ef7Ad8442C6D1f9E89e07e7761',
+        multiSendAbi: multiABI,
+        safeMasterCopyAddress: '0x3E5c63644E683549055b9Be8653de26E0B4CD36E',
+        safeMasterCopyAbi: L2ABI,
+        safeProxyFactoryAddress: '0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2',
+        safeProxyFactoryAbi: proxyABI,
+      },
+    },
   })
+
+  // return await Safe.create({
+  //   ethAdapter,
+  //   safeAddress,
+  //   isL1SafeMasterCopy,
+  // })
 }

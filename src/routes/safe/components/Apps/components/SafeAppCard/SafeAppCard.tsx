@@ -48,8 +48,6 @@ const SafeAppCard = ({
   })
   const openSafeAppLink = `${appsPath}/?appUrl=${encodeURI(safeApp.url)}`
 
-  console.log('openSafeAppLink', openSafeAppLink)
-
   const shareSafeApp = () => {
     const shareSafeAppUrl = getShareSafeAppUrl(safeApp.url, chainId)
     copyToClipboard(shareSafeAppUrl)
