@@ -46,7 +46,9 @@ const SafeAppCard = ({
     shortName: getShortName(),
     safeAddress,
   })
-  const openSafeAppLink = `${appsPath}?appUrl=${encodeURI(safeApp.url)}`
+  const openSafeAppLink = `${appsPath}/?appUrl=${encodeURI(safeApp.url)}`
+
+  console.log('openSafeAppLink', openSafeAppLink)
 
   const shareSafeApp = () => {
     const shareSafeAppUrl = getShareSafeAppUrl(safeApp.url, chainId)

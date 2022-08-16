@@ -47,27 +47,30 @@ export const FeaturedApps = (): ReactElement | null => {
         <WidgetTitle>Connect & Transact</WidgetTitle>
         <WidgetBody>
           <StyledGrid container>
-            {featuredApps.map((app) => (
-              <StyledGridItem item xs md key={app.id}>
-                <StyledLink to={getSafeAppUrl(app.url, routesSlug)}>
-                  <Card>
-                    <Grid container alignItems="center" spacing={3}>
-                      <Grid item xs={12} md={3}>
-                        <StyledImage src={app.iconUrl} alt={app.name} />
+            {featuredApps.map((app) => {
+              console.log('______', getSafeAppUrl(app.url, routesSlug))
+              return (
+                <StyledGridItem item xs md key={app.id}>
+                  <StyledLink to={getSafeAppUrl(app.url, routesSlug)}>
+                    <Card>
+                      <Grid container alignItems="center" spacing={3}>
+                        <Grid item xs={12} md={3}>
+                          <StyledImage src={app.iconUrl} alt={app.name} />
+                        </Grid>
+                        <Grid item xs={12} md={9}>
+                          <Box mb={1.01}>
+                            <Text size="xl">{app.description}</Text>
+                          </Box>
+                          <Text color="primary" size="lg" strong>
+                            Use {app.name}
+                          </Text>
+                        </Grid>
                       </Grid>
-                      <Grid item xs={12} md={9}>
-                        <Box mb={1.01}>
-                          <Text size="xl">{app.description}</Text>
-                        </Box>
-                        <Text color="primary" size="lg" strong>
-                          Use {app.name}
-                        </Text>
-                      </Grid>
-                    </Grid>
-                  </Card>
-                </StyledLink>
-              </StyledGridItem>
-            ))}
+                    </Card>
+                  </StyledLink>
+                </StyledGridItem>
+              )
+            })}
           </StyledGrid>
         </WidgetBody>
       </WidgetContainer>

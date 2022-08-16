@@ -117,15 +117,17 @@ const SafeApps = ({ size = 6 }: { size?: number }): ReactElement => {
 
       <WidgetBody>
         <StyledGrid>
-          {displayedApps.map((safeApp) => (
-            <SafeAppCard
-              key={safeApp.id}
-              safeApp={safeApp}
-              togglePin={togglePin}
-              size="md"
-              isPinned={pinnedSafeApps.some((pinnedSafeApp) => pinnedSafeApp.id === safeApp.id)}
-            />
-          ))}
+          {displayedApps.map((safeApp) => {
+            return (
+              <SafeAppCard
+                key={safeApp.id}
+                safeApp={safeApp}
+                togglePin={togglePin}
+                size="md"
+                isPinned={pinnedSafeApps.some((pinnedSafeApp) => pinnedSafeApp.id === safeApp.id)}
+              />
+            )
+          })}
 
           <StyledLink to={allAppsUrl}>
             <StyledAppCard>

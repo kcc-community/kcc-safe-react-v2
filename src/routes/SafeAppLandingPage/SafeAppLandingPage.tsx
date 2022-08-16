@@ -1,10 +1,10 @@
 import { ReactElement, useEffect, useMemo } from 'react'
-import { Redirect } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import { Card, Loader } from '@gnosis.pm/safe-react-components'
 
 import { isValidChainId } from 'src/config'
-import { WELCOME_ROUTE } from 'src/routes/routes'
+// import { WELCOME_ROUTE } from 'src/routes/routes'
 import { useAppList } from 'src/routes/safe/components/Apps/hooks/appList/useAppList'
 import { SafeApp } from 'src/routes/safe/components/Apps/types'
 import { getAppInfoFromUrl } from 'src/routes/safe/components/Apps/utils'
@@ -65,7 +65,8 @@ const SafeAppLandingPage = (): ReactElement => {
   }, [isLoading, safeAppDetails, safeAppChainId])
 
   if (!safeAppUrl || !isValidChain || isSafeAppMissing) {
-    return <Redirect to={WELCOME_ROUTE} />
+    console.log('Redirect')
+    // return <Redirect to={WELCOME_ROUTE} />
   }
 
   return (
@@ -91,7 +92,7 @@ const SafeAppLandingPage = (): ReactElement => {
               {/* User Safe Section */}
               {safeAppChainId && (
                 <UserSafeSection
-                  safeAppUrl={safeAppUrl}
+                  safeAppUrl={safeAppUrl as string}
                   availableChains={availableChains}
                   safeAppChainId={safeAppChainId}
                 />
