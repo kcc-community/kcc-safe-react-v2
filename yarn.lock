@@ -11588,6 +11588,11 @@ kcc-safe-deployments-sdk@0.1.5:
     "@types/semver" "^7.3.12"
     semver "^7.3.7"
 
+kcc-safe-modules-deployments@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/kcc-safe-modules-deployments/-/kcc-safe-modules-deployments-0.0.1.tgz#99d211886501cf7579379e417b0efb25692e23b7"
+  integrity sha512-SRwd2wfeDr1iLaJmdzZRhiHEDBvPQoz3rYIc2jSp8S72JaF0dXdYWIGiFceQYb5hW8C4TeWk6f4w9ciKZ9UKPA==
+
 keccak256@^1.0.0:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/keccak256/-/keccak256-1.0.6.tgz#dd32fb771558fed51ce4e45a035ae7515573da58"
