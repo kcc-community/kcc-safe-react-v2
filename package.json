@@ -15,6 +15,7 @@
     "name": "Gnosis Team",
     "email": "safe@gnosis.io"
   },
+  "proxy": "https://explorer.kcc.io",
   "homepage": "/",
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",

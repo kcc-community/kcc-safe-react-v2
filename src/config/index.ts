@@ -139,17 +139,21 @@ const getExplorerApiKey = (apiUrl: string): string | undefined => {
 }
 
 const fetchContractAbi = async (contractAddress: string) => {
-  const apiUri = getExplorerUriTemplate().api
-  const apiKey = getExplorerApiKey(apiUri)
+  // const apiUri = getExplorerUriTemplate().api
+  // const apiKey = getExplorerApiKey(apiUri)
 
-  const params = {
-    module: 'contract',
-    action: 'getAbi',
-    address: contractAddress,
-    ...(apiKey && { apiKey }),
-  }
+  // const params = {
+  //   module: 'contract',
+  //   action: 'getAbi',
+  //   address: contractAddress,
+  //   ...(apiKey && { apiKey }),
+  // }
 
-  const finalUrl = evalTemplate(apiUri, params)
+  // const finalUrl = evalTemplate(apiUri, params)
+
+  const finalUrl = `https://safe-proxy.kcc.network/v2api/contract/getabi?address=${contractAddress}`
+
+  console.log('finalUrl', finalUrl)
 
   const response = await fetch(finalUrl)
 
@@ -162,13 +166,15 @@ const fetchContractAbi = async (contractAddress: string) => {
 
 export const getContractABI = async (contractAddress: string) => {
   try {
-    const { result, status } = await fetchContractAbi(contractAddress)
+    const response = await fetchContractAbi(contractAddress)
 
-    if (status === '0') {
+    console.log('response', response)
+
+    if (response.code == '0') {
       return []
     }
 
-    return result
+    return response?.data[0]?.contract_abi ?? []
   } catch (e) {
     console.error('Failed to retrieve ABI', e)
     return undefined
